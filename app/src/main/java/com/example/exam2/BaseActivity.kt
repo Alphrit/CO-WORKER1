@@ -17,18 +17,40 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    // [변경] 사용자 지정 Firebase Realtime Database URL
+    private val FIREBASE_URL = "https://exam-afefa-default-rtdb.firebaseio.com"
+
     // 현재 시간 "yyyy-MM-dd HH:mm" 형식
     private fun nowTimestamp(): String {
         val sdf = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
         return sdf.format(java.util.Date())
     }
 
-    // Firebase 에 도움 요청 기록
+    // [추가] 일반 버튼 클릭 로그 저장 함수
+    // "click_logs"라는 키 아래에 [버튼이름 -> 로그] 형태로 쌓입니다.
+    protected fun logButtonAction(buttonName: String) {
+        // 지정된 URL의 DB 인스턴스 가져오기
+        val db = FirebaseDatabase.getInstance(FIREBASE_URL)
+        val logRef = db.getReference("click_logs").child(buttonName)
+
+        val callerActivityName = this::class.java.simpleName
+
+        val data = mapOf(
+            "timestamp" to nowTimestamp(),
+            "caller" to callerActivityName,
+            "action" to "clicked"
+        )
+
+        // push()를 사용하여 클릭할 때마다 고유 ID로 로그가 쌓이게 함 (개수를 셀 수 있음)
+        logRef.push().setValue(data)
+    }
+
+    // [수정] Firebase 에 도움 요청 기록 (URL 적용)
     private fun logHelpRequest(reasonKey: String) {
-        val db = FirebaseDatabase.getInstance()
+        val db = FirebaseDatabase.getInstance(FIREBASE_URL) // URL 적용
         val helpRef = db.getReference("help")
 
-        // 이 BaseActivity 를 상속한 실제 액티비티 이름
         val callerActivityName = this::class.java.simpleName
 
         val data = mapOf(
@@ -37,10 +59,9 @@ abstract class BaseActivity : AppCompatActivity() {
             "reason" to reasonKey
         )
 
-        // DialogHelpPopup 에서 쓰던 구조와 동일:
-        // help/adminHelp, help/noSound, help/temiStopped, help/screenNotWorking
         helpRef.child(reasonKey).push().setValue(data)
     }
+
     // 👇 Temi 등에서 전역 터치 이벤트를 듣기 위한 핸들러 목록
     private val globalTouchHandlers = mutableListOf<(MotionEvent) -> Unit>()
 
@@ -50,26 +71,19 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private val inactivityHandler = Handler(Looper.getMainLooper())
     private var returnHomeDialog: Dialog? = null
-    private var autoReturnEnabled: Boolean = true   // 👈 자동 홈복귀 on/off 스위치
+    private var autoReturnEnabled: Boolean = true
+    private val inactivityTimeout = 120_000L // 2분 (기존 코드 유지)
 
-    // 30초 무조작 타임아웃
-    private val inactivityTimeout = 120_000L
-
-    // 5초 카운트다운 (상수는 그대로 두었지만 직접 쓰진 않음)
     private val countdownDuration = 5_000L
     private val countdownHandler = Handler(Looper.getMainLooper())
     private var countdownSeconds = 5
 
-    // 30초 후 실행되는 Runnable
     private val inactivityRunnable = Runnable {
         if (autoReturnEnabled) {
             showReturnHomeDialog()
         }
     }
 
-    /**
-     * Temi 안내 중에는 false, 일반 화면에서는 true 로 설정
-     */
     fun setAutoReturnEnabled(enabled: Boolean) {
         autoReturnEnabled = enabled
         if (enabled) {
@@ -82,7 +96,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 타이머는 onResume 에서 시작
     }
 
     override fun onResume() {
@@ -104,38 +117,27 @@ abstract class BaseActivity : AppCompatActivity() {
         dismissReturnHomeDialog()
     }
 
-    /**
-     * 모든 터치 이벤트를 가로채서
-     * - 자동 홈복귀 타이머 리셋
-     * - Temi 더블탭 제스처 리스너에게도 전달
-     */
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (returnHomeDialog?.isShowing != true && autoReturnEnabled) {
             resetInactivityTimer()
         }
-
-        // TemiNavigationHelper 에서 등록한 제스처 리스너 호출
         ev?.let { e ->
             globalTouchHandlers.forEach { handler ->
                 handler(e)
             }
         }
-
         return super.dispatchTouchEvent(ev)
     }
 
-    /** 30초 타이머 리셋 */
     private fun resetInactivityTimer() {
         inactivityHandler.removeCallbacks(inactivityRunnable)
         inactivityHandler.postDelayed(inactivityRunnable, inactivityTimeout)
     }
 
-    /** 30초 타이머 취소 */
     private fun cancelInactivityTimer() {
         inactivityHandler.removeCallbacks(inactivityRunnable)
     }
 
-    /** 5초 카운트다운 팝업 표시 */
     private fun showReturnHomeDialog() {
         if (returnHomeDialog?.isShowing == true) return
 
@@ -146,10 +148,11 @@ abstract class BaseActivity : AppCompatActivity() {
             setCancelable(false)
 
             val countdownTextView = findViewById<TextView>(R.id.tv_countdown)
-
             val cancelButton = findViewById<View>(R.id.btn_cancel)
+
             cancelButton.setOnClickListener {
-                // 취소 -> 팝업 닫고 다시 30초 타이머 시작
+                // [선택 사항] 취소 버튼도 로그를 남기고 싶다면:
+                // logButtonAction("btnTimeoutCancel")
                 dismissReturnHomeDialog()
                 resetInactivityTimer()
             }
@@ -161,7 +164,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    /** 5초 카운트다운 로직 */
     private fun startCountdown(countdownTextView: TextView) {
         countdownTextView.text = countdownSeconds.toString()
 
@@ -177,16 +179,16 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    /** 카운트다운 + 팝업 닫기 */
     private fun dismissReturnHomeDialog() {
         countdownHandler.removeCallbacksAndMessages(null)
         returnHomeDialog?.dismiss()
         returnHomeDialog = null
     }
 
-    /** 메인으로 이동 */
     private fun returnToHome() {
         dismissReturnHomeDialog()
+        // [선택 사항] 타임아웃으로 인한 홈 복귀 로그
+        // logButtonAction("timeoutReturnHome")
 
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -195,7 +197,6 @@ abstract class BaseActivity : AppCompatActivity() {
         finishAffinity()
     }
 
-    /** HELP 버튼 팝업 */
     protected fun showHelpPopup() {
         val dialog = Dialog(this).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -211,25 +212,20 @@ abstract class BaseActivity : AppCompatActivity() {
 
             btnAdminHelp.setOnClickListener {
                 dismiss()
-                // 관리자 호출 일반
                 showAdminCallPopup("adminHelp")
             }
             btnNoSound.setOnClickListener {
                 dismiss()
-                // 소리가 안 나요
                 showAdminCallPopup("noSound")
             }
             btnTemiStopped.setOnClickListener {
                 dismiss()
-                // Temi 가 멈췄어요
                 showAdminCallPopup("temiStopped")
             }
             btnScreenNotWorking.setOnClickListener {
                 dismiss()
-                // 화면이 작동하지 않아요
                 showAdminCallPopup("screenNotWorking")
             }
-
             btnCancel.setOnClickListener { dismiss() }
 
             show()
@@ -253,7 +249,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    /** 설문 중지 팝업 */
     protected fun showStopPopup(onConfirm: () -> Unit) {
         Dialog(this).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -265,6 +260,8 @@ abstract class BaseActivity : AppCompatActivity() {
             val btnCancel = findViewById<Button>(R.id.btnCancel)
 
             btnGoBack.setOnClickListener {
+                // [선택 사항] 종료 팝업에서 확인 버튼 로그
+                // logButtonAction("btnStopConfirm")
                 dismiss()
                 onConfirm()
             }
@@ -275,7 +272,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    /** 홈으로 이동 */
     protected fun navigateToHome() {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -284,7 +280,6 @@ abstract class BaseActivity : AppCompatActivity() {
         finishAffinity()
     }
 
-    /** 코쇼티 인트로로 이동 */
     protected fun navigateToCoshowtiIntro() {
         val intent = Intent(this, CoshowtiActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -295,6 +290,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /**
      * 공통 상단바 세팅
+     * [수정] 각 버튼 클릭 시 logButtonAction() 호출 추가
      */
     protected fun setupCommonTopBar(
         topBarView: View,
@@ -305,8 +301,25 @@ abstract class BaseActivity : AppCompatActivity() {
         val btnHome = topBarView.findViewById<ImageButton>(R.id.btnHome)
         val btnHelp = topBarView.findViewById<ImageButton>(R.id.btnHelp)
 
-        btnBack?.setOnClickListener { backAction?.invoke() }
-        btnHome?.setOnClickListener { homeAction?.invoke() }
-        btnHelp?.setOnClickListener { showHelpPopup() }
+        btnBack?.setOnClickListener {
+            // 1. 뒤로가기 버튼 로그 전송
+            logButtonAction("btnBack")
+            // 2. 실제 뒤로가기 동작 수행
+            backAction?.invoke()
+        }
+
+        btnHome?.setOnClickListener {
+            // 1. 홈 버튼 로그 전송
+            logButtonAction("btnHome")
+            // 2. 실제 홈 이동 동작 수행
+            homeAction?.invoke()
+        }
+
+        btnHelp?.setOnClickListener {
+            // 1. 도움말 버튼 로그 전송
+            logButtonAction("btnHelp")
+            // 2. 팝업 표시
+            showHelpPopup()
+        }
     }
 }
