@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.database.*
 
@@ -34,6 +35,14 @@ class MultiPlayResultActivity : BaseActivity() {
         val btnHelp = findViewById<ImageButton>(R.id.btnHelp)
         btnHelp?.setOnClickListener {
             showHelpPopup()
+        }
+        // surveybutton 클릭 시 usability 화면으로 이동
+        val surveyButton = findViewById<ImageView>(R.id.surveybutton)
+        surveyButton?.setOnClickListener {
+            val intent = Intent(this, UsabilityActivity::class.java)
+            // 설문 유형: singlequiz (퀴즈 결과 화면에서 진입)
+            intent.putExtra("surveyType", "코쇼퀴즈")
+            startActivity(intent)
         }
     }
 

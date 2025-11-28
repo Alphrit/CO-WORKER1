@@ -264,7 +264,8 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = RESTROOM_LOCATION_KEY,
             temiLocationName = RESTROOM_LOCATION_NAME,
-            guideMessage = "${RESTROOM_LOCATION_NAME}로 안내중입니다."
+            guideMessage = ""
+
         )
     }
 
@@ -272,7 +273,7 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = ENTRANCE_LOCATION_KEY,
             temiLocationName = ENTRANCE_LOCATION_NAME,
-            guideMessage = "${ENTRANCE_LOCATION_NAME}로 안내중입니다."
+            guideMessage = ""
         )
     }
 
@@ -280,7 +281,7 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = EXIT_LOCATION_KEY,
             temiLocationName = EXIT_LOCATION_NAME,
-            guideMessage = "${EXIT_LOCATION_NAME}로 안내중입니다."
+            guideMessage = ""
         )
     }
 
@@ -288,7 +289,7 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = MAINHALL_LOCATION_KEY,
             temiLocationName = MAINHALL_LOCATION_NAME,
-            guideMessage = "${MAINHALL_LOCATION_NAME}로 안내중입니다."
+            guideMessage = ""
         )
     }
 }

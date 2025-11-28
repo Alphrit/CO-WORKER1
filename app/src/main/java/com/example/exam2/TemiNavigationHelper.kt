@@ -11,6 +11,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.TtsRequest
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener
+import android.os.Handler
+import android.os.Looper
+import android.content.Intent
 
 class TemiNavigationHelper(
     private val activity: AppCompatActivity,
@@ -36,6 +39,7 @@ class TemiNavigationHelper(
 
     // 🔹 추가: 현재 진행 중인 설명 TTS 요청(필요시 취소용)
     private var currentGuideTts: TtsRequest? = null
+    private val ttsHandler = Handler(Looper.getMainLooper())
     private val gestureDetector: GestureDetectorCompat =
         GestureDetectorCompat(
             activity,
@@ -88,7 +92,12 @@ class TemiNavigationHelper(
             showFaceLayout.invoke()
         }
     }
-
+    private fun goToUsabilitySurvey() {
+        val intent = Intent(activity, UsabilityActivity::class.java).apply {
+            putExtra("surveyType", "길안내")   // 필요하면 다른 값으로 변경 가능
+        }
+        activity.startActivity(intent)
+    }
     /**
      * 길찾기 시작
      *
@@ -100,7 +109,7 @@ class TemiNavigationHelper(
     fun startNavigation(
         locationKey: String,
         temiLocationName: String,
-        boothTitle: String,
+        boothTitle: String? = null,
         guideMessage: String
     ) {
         // 0. Temi 안에 해당 위치가 실제로 있는지 확인
@@ -139,18 +148,36 @@ class TemiNavigationHelper(
         // 4. UI: 얼굴 화면으로 전환
         showFaceLayoutInternal()
 
-        // 5. 안내 멘트 TTS (기본 멘트 + 부스별 커스텀)
-        val text = if (guideMessage.isBlank()) {
-            "${boothTitle} 부스로 안내 중입니다."
-        } else {
-            guideMessage
+        ttsHandler.removeCallbacksAndMessages(null)
+        robot.cancelAllTtsRequests()
+
+// 1) 항상 먼저 나오는 안내 시작 멘트
+        val startName = when {
+            !boothTitle.isNullOrBlank() -> boothTitle
+            !temiLocationName.isBlank() -> temiLocationName
+            else -> null
         }
 
-        // 혹시 이전에 말하고 있던 TTS 가 있으면 끊기
-        robot.cancelAllTtsRequests()
-        val tts = TtsRequest.create(text, false)
-        currentGuideTts = tts
-        robot.speak(tts)
+        startName?.let { name ->
+            val startText = "$name 로 안내를 시작합니다."
+            val startTts = TtsRequest.create(startText, false)
+            robot.speak(startTts)
+        }
+
+// 2) 그 다음에 나오는 상세 설명 멘트 (guideMessage가 있을 때만)
+        val explainText = guideMessage.trim()
+        if (explainText.isNotEmpty()) {
+            val explainTts = TtsRequest.create(explainText, false)
+            currentGuideTts = explainTts
+
+            // 시작 멘트가 어느 정도 끝난 뒤에 재생 (1.5~2초 정도 텀)
+            ttsHandler.postDelayed({
+                // 혹시 그 사이에 안내가 취소/종료되었다면 재생 안 함
+                if (isNavigating) {
+                    robot.speak(explainTts)
+                }
+            }, 8000L)
+        }
     }
 
     override fun onGoToLocationStatusChanged(
@@ -192,6 +219,9 @@ class TemiNavigationHelper(
 
         isNavigating = false
 
+        // 🔹 예약된 설명 TTS 딜레이 제거
+        ttsHandler.removeCallbacksAndMessages(null)
+
         // Firebase 플래그 0으로
         if (locationKey != null) {
             directionsRef.child(locationKey).setValue(0).addOnCompleteListener { task ->
@@ -206,7 +236,6 @@ class TemiNavigationHelper(
         // 🔹 현재 말하고 있던 안내 멘트는 즉시 끊기
         robot.cancelAllTtsRequests()
 
-        // 🔹 부스 제목(없으면 Temi 위치 이름)을 우선으로 사용
         val arrivalName = when {
             !boothTitle.isNullOrBlank() -> boothTitle
             !temiName.isNullOrBlank() -> temiName
@@ -218,13 +247,16 @@ class TemiNavigationHelper(
 
         robot.speak(TtsRequest.create(finText, false))
 
-        // UI 원래 화면으로
         showMapLayoutInternal()
+        goToUsabilitySurvey()
     }
     fun cancelNavigation(message: String? = null) {
         if (!isNavigating) return
 
         isNavigating = false
+
+        // 🔹 예약된 설명 TTS 딜레이 제거
+        ttsHandler.removeCallbacksAndMessages(null)
 
         // 이동 중단 + 말도 중단
         robot.stopMovement()
@@ -242,7 +274,6 @@ class TemiNavigationHelper(
 
         if (!message.isNullOrEmpty()) {
             Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
-            // 필요하면 Temi도 같이 말하게
             robot.speak(TtsRequest.create(message, false))
         }
 
