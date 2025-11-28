@@ -1,0 +1,201 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+<ImageView
+    android:layout_width="430dp"
+    android:layout_height="wrap_content"
+    android:src="@drawable/withtemi"
+    android:scaleType="fitCenter"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="480dp"/>
+
+    <ImageView
+        android:layout_width="760dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/wemeet"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="470dp"/>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:id="@+id/homeleftimg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/homeimg1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/app_name" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="462dp"
+        android:layout_marginTop="122dp"
+
+        android:padding="8dp"
+        android:clipToPadding="false"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/navigation_button"
+            android:layout_width="360dp"
+            android:layout_height="590dp"
+            android:backgroundTint="#007AFF"
+            app:strokeColor="#CFCFCF"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="30dp"
+
+            app:cardElevation="5dp"
+            />
+
+        <TextView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="70dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:text="장소안내"
+            android:fontFamily="@font/pretendardbold"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:elevation="6dp"
+            />
+        <TextView
+            android:id="@+id/navigation_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:text="Temi와 함께 길찾기"
+            android:textColor="#FFFFFF"
+            android:textSize="23sp"
+            android:fontFamily="@font/pretendardsemibold"
+            android:elevation="6dp"
+            />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="862dp"
+        android:layout_marginTop="122dp"
+
+        android:padding="8dp"
+        android:clipToPadding="false">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/csti_button"
+            android:layout_width="360dp"
+            android:layout_height="275dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#CFE2FF"
+            app:strokeColor="#CFCFCF"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="30dp"
+
+            app:cardElevation="5dp"
+            />
+
+        <TextView
+            android:id="@+id/csti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="70dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:text="코쇼TI"
+            android:textColor="#3E3F40"
+            android:textSize="35sp"
+            android:fontFamily="@font/pretendardbold"
+            android:elevation="6dp"/>
+        <TextView
+            android:id="@+id/csti_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:text="나에게 꼭 맞는 부스 추천"
+            android:textColor="#3E3F40"
+            android:textSize="23sp"
+            android:fontFamily="@font/pretendardsemibold"
+            android:elevation="6dp"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="862dp"
+        android:layout_marginTop="437dp"
+
+        android:padding="8dp"
+        android:clipToPadding="false">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/minigame_button"
+            android:layout_width="360dp"
+            android:layout_height="275dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FFFFFF"
+            app:strokeColor="#CFCFCF"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="30dp"
+
+            app:cardElevation="5dp"
+            />
+
+        <TextView
+            android:id="@+id/minigame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="70dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:text="미니게임"
+            android:textColor="#3E3F40"
+            android:textSize="35sp"
+            android:fontFamily="@font/pretendardbold"
+            android:elevation="6dp"/>
+        <TextView
+            android:id="@+id/minigame_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:text="스티커 사진, 코쇼 퀴즈"
+            android:textColor="#3E3F40"
+            android:textSize="23sp"
+            android:fontFamily="@font/pretendardsemibold"
+            android:elevation="6dp"/>
+
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="0dp">
+
+    <!-- Top Bar (Common) -->
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="80dp"
+        android:layout_marginTop="120dp">
+
+        <!-- Progress -->
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 / 8"
+            android:textColor="#000000"
+            android:textSize="32sp"
+            android:fontFamily="@font/pretendardsemibold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <!-- Question Intro Text -->
+        <TextView
+            android:id="@+id/tvQuestion2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:fontFamily="@font/pretendardsemibold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <!-- Option 1 Button (Yellow when selected) -->
+        <TextView
+            android:id="@+id/btnOption1"
+            android:layout_width="1100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_stage2_option1_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:minHeight="90dp"
+            android:padding="0dp"
+            android:text="선택지 1"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:fontFamily="@font/pretendardsemibold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <!-- Option 2 Button (Blue when selected) -->
+        <TextView
+            android:id="@+id/btnOption2"
+            android:layout_width="1100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_stage2_option2_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:minHeight="90dp"
+            android:padding="0dp"
+            android:text="선택지 2"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:fontFamily="@font/pretendardsemibold" />
+    </LinearLayout>
+
+    <!-- Previous Question Button (Higher elevation to appear on top) -->
+    <ImageButton
+        android:id="@+id/btnPrevious"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/previousbutton"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:elevation="10dp"
+        android:visibility="visible"
+        android:contentDescription="@string/coshoti_prev" />
+
+    <!-- Next Button (Bottom) -->
+    <ImageButton
+        android:id="@+id/btnNext"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:src="@drawable/nextbutton_monochrome"
+        android:enabled="false"
+        android:visibility="visible" />
+
+    <!-- Result Button (Shown only on last question) -->
+    <ImageButton
+        android:id="@+id/btnResult"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:src="@drawable/result_monochrome"
+        android:enabled="false"
+        android:visibility="visible"
+        android:contentDescription="@string/coshoti_view_result" />
+
+</RelativeLayout>

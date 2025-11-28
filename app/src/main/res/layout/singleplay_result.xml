@@ -1,0 +1,298 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+    <include
+        android:id="@+id/include_common_button"
+        layout="@layout/survey" />
+
+<LinearLayout
+    android:id="@+id/result"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="70dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="결과 확인"
+        android:textColor="#3E3F40"
+        android:textSize="60sp"
+        android:fontFamily="@font/pretendardbold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="코쇼 퀴즈에 참여해주셔서 감사드립니다."
+        android:textColor="#4B5563"
+        android:textSize="30sp"
+        android:fontFamily="@font/pretendardbold" />
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rankingtable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/result"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="50dp"
+        android:weightSum="3">
+
+
+        <com.google.android.material.card.MaterialCardView
+        android:layout_marginTop="40dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="220dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"
+        app:strokeColor="#007AFF"
+        app:strokeWidth="4dp">
+            <ImageView
+                android:id="@+id/icon2"
+                android:layout_marginTop="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon2"/>
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="120dp"
+                android:text="이서연"
+                android:textColor="#007AFF"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+            <TextView
+                android:id="@+id/score2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="170dp"
+                android:text="120점"
+                android:textColor="#3E3F40"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="260dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_button"
+            app:strokeColor="#007AFF"
+            app:strokeWidth="4dp">
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon1"/>
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="160dp"
+                android:text="홍길동"
+                android:textColor="#007AFF"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+            <TextView
+                android:id="@+id/score1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="210dp"
+                android:text="132점"
+                android:textColor="#3E3F40"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="60dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_button"
+            app:strokeColor="#007AFF"
+            app:strokeWidth="4dp">
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="top|center"
+                android:src="@drawable/icon3"/>
+            <TextView
+                android:id="@+id/name3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:text="이재욱"
+                android:textColor="#007AFF"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+            <TextView
+                android:id="@+id/score3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="150dp"
+                android:text="113점"
+                android:textColor="#3E3F40"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/myplacelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rankingtable"
+        android:gravity="center_horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="25dp"
+            android:layout_width="1140dp"
+            android:layout_height="130dp"
+            android:background="@drawable/rounded_button"
+            app:strokeColor="#007AFF"
+            app:strokeWidth="4dp">
+            <TextView
+                android:id="@+id/myplace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:text="내 순위 8위"
+                android:textColor="#3E3F40"
+                android:textSize="35dp"
+                android:fontFamily="@font/pretendardbold"/>
+
+            <TextView
+                android:id="@+id/myscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="95dp"
+                android:text="(79점)"
+                android:textColor="#3E3F40"
+                android:textSize="25sp"
+                android:fontFamily="@font/pretendardbold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="270dp"
+                android:text="코쇼 퀴즈의 세계에 오신 걸 축하드립니다. \n매번 도전할 때마다 새로운 기록이 만들어집니다."
+                android:textColor="#3E3F40"
+                android:textSize="25sp"
+                android:fontFamily="@font/pretendardbold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="800dp"
+                android:text="/"
+                android:textColor="#007AFF"
+                android:textSize="80sp"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:id="@+id/resultlog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="900dp"
+                android:text="시간초과 종료"
+                android:textColor="#007AFF"
+                android:textSize="30sp"
+                android:fontFamily="@font/pretendardbold"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:layout_marginHorizontal="250dp"
+    android:layout_below="@id/myplacelayout"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/gotocertification"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="20dp"
+        android:layout_height="70dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#FFDD57"
+        app:strokeColor="#3E3F40"
+        app:strokeWidth="2dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="인증서 발급하러 가기"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/retry"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="20dp"
+        android:layout_height="70dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#FFFFFF"
+        app:strokeColor="#3E3F40"
+        app:strokeWidth="2dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="다시 도전하기"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
+
+
+
+
+</RelativeLayout>

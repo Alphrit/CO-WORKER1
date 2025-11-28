@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="0dp">
+
+    <!-- Top Bar (Common) -->
+    <include
+        android:id="@+id/topBarResult"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <!-- TEMI Character Button (Independent Position) -->
+    <ImageButton
+        android:id="@+id/btnTemiCharacter"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/coshowti_charactor_2"
+        android:scaleType="fitCenter"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="설문 시작" />
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="135dp">
+
+        <!-- Result Title -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="당신의 유형은 "
+                android:textColor="#000000"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardbold" />
+
+            <TextView
+                android:id="@+id/tvResultCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="디지털지능형"
+                android:textColor="#007AFF"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardbold" />
+
+            <TextView
+                android:id="@+id/tvResultCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(DBAS)"
+                android:textColor="#000000"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardbold" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Result Name/Subtitle -->
+        <TextView
+            android:id="@+id/tvResultName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="데이터를 기반으로 구조를 설계하는 전략가"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:fontFamily="@font/pretendardbold"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- Character Image -->
+        <ImageView
+            android:id="@+id/ivResultCharacter"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:src="@drawable/coshowti_result_category_charactor"
+            android:scaleType="fitCenter" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <!-- Description -->
+        <TextView
+            android:id="@+id/tvResultDescription"
+            android:layout_width="900dp"
+            android:layout_height="wrap_content"
+            android:text="혼란 속에서도 규칙을 발견한다.\n복잡한 정보를 정리하며 구조화하는 과정 자체를 즐긴다."
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
+            android:fontFamily="@font/pretendardregular" />
+
+    </LinearLayout>
+
+    <!-- Right Arrow Button -->
+    <ImageButton
+        android:id="@+id/btnNext"
+        android:layout_width="45dp"
+        android:layout_height="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/rightarrow"
+        android:scaleType="fitCenter"
+        android:contentDescription="다음"
+        android:layout_marginEnd="30dp"/>
+
+</RelativeLayout>

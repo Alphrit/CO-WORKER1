@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+    <TextView
+        android:id="@+id/select1p2p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="250dp"
+        android:text="닉네임을 입력하세요"
+        android:textColor="#3E3F40"
+        android:textSize="60sp"
+        android:fontFamily="@font/pretendardbold"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="650dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"
+        app:strokeColor="#007AFF"
+        app:strokeWidth="2dp">
+
+        <EditText
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="3dp"
+            android:hint="이름 또는 별명 입력"
+            android:fontFamily="@font/pretendardbold"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:inputType="textPersonName"
+            android:textSize="25sp"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/startbutton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#FFDD57"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:gravity="center"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="START"
+            android:fontFamily="@font/pretendardbold"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

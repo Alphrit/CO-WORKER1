@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 흰색 둥근 팝업 카드 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardThemeFilter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="32dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="24dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="24dp">
+
+            <!-- 상단 필터 체크박스 영역 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- 1열: 모빌리티와 로봇 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtGroupMobility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="모빌리티와\n로봇"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#203040" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#0B84FF" />
+
+                    <CheckBox
+                        android:id="@+id/cbFutureCar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="미래자동차"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbIntelligentRobot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="지능형로봇"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbAeroDrone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="항공드론"
+                        android:textSize="16sp" />
+                    <CheckBox
+                        android:id="@+id/cbOnlyCurrentRunning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="현재 진행중인 부스만 보기" />
+                </LinearLayout>
+
+                <!-- 2열: 그린·바이오 테크놀로지 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="32dp">
+
+                    <TextView
+                        android:id="@+id/txtGroupGreenBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="그린·바이오\n테크놀로지"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#203040" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#0B84FF" />
+
+                    <CheckBox
+                        android:id="@+id/cbBioHealth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="바이오헬스"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbGreenBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="그린바이오"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbEnergyNewIndustry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="에너지신산업"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbEcoUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="에코업"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- 3열: 스마트소재와 반도체 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="32dp">
+
+                    <TextView
+                        android:id="@+id/txtGroupSmartMaterial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스마트소재와\n반도체"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#203040" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#0B84FF" />
+
+                    <CheckBox
+                        android:id="@+id/cbNextGenSemi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="차세대반도체"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbSemiParts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="반도체소부장"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbSecondaryBattery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="이차전지"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbAdvancedMaterial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="첨단소재나노융합"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbNextGenDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="차세대디스플레이"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- 4열: 인공지능과 데이터 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="32dp">
+
+                    <TextView
+                        android:id="@+id/txtGroupAIData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="인공지능과\n데이터"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#203040" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#0B84FF" />
+
+                    <CheckBox
+                        android:id="@+id/cbAI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="인공지능"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbBigData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="빅데이터"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbImmersiveMedia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="실감미디어"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbNextGenComm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="차세대통신"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbDataSecurityFusion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="데이터보안활용융합"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbIoT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="사물인터넷"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 하단 버튼 영역 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="24dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterApply"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="16dp"
+                    android:text="적용하기"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#203040"
+                    app:backgroundTint="#FFEB3B"
+                    app:cornerRadius="28dp"
+                    app:rippleColor="@android:color/transparent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:text="취소"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#203040"
+                    app:backgroundTint="#f0f0f0"
+                    app:cornerRadius="28dp"
+                    app:rippleColor="@android:color/transparent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

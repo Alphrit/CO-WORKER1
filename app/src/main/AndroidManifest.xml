@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.robotemi.permission.map"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.robotemi.permission.map"/>
+    <uses-permission android:name="com.robotemi.permission.face_recognition"/>
+    <uses-permission android:name="com.robotemi.permission.settings"/>
+    <uses-permission android:name="com.robotemi.permission.sequence"/>
+    <uses-permission android:name="com.robotemi.permission.meetings"/>
+    <application
+
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Exam2"
+        tools:targetApi="31">
+        <meta-data
+            android:name="com.robotemi.sdk.metadata.SKILL"
+            android:value="@string/app_name" />
+        <meta-data
+            android:name="com.robotemi.sdk.metadata.ACTIONS"
+            android:value="@string/app_name" />
+        <meta-data
+            android:name="com.robotemi.sdk.metadata.PERMISSIONS"
+            android:value="com.robotemi.permission.face_recognition,
+            com.robotemi.permission.map,
+            com.robotemi.permission.settings,
+            com.robotemi.permission.sequence,
+            com.robotemi.permission.meetings" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".InformationByThemeActivity" />
+        <activity android:name=".MapCoShowActivity" />
+        <activity
+            android:name=".CoshowtiActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Exam2">
+        </activity>
+        <activity
+            android:name=".CoshowtiResultActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Exam2">
+        </activity>
+        <activity
+            android:name=".CoshowtiResultDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Exam2">
+        </activity>
+        <activity android:name=".TakePhotoActivity_1" />
+        <activity android:name=".TakePhotoActivity_2" />
+        <activity android:name=".GameSelectActivity" />
+        <activity android:name=".Select1p2pActivity" />
+        <activity android:name=".SinglePlayNicknameActivity" />
+        <activity android:name=".FrameSelectActivity" />
+        <activity android:name=".PrintPhotoActivity"/>
+        <!-- <activity android:name=".Quiz4c"/> -->
+        <activity android:name=".BaseQuizActivity"/>
+        <activity android:name=".CertificationActivity"/>
+        <activity android:name=".SinglePlayResultActivity"/>
+        <activity android:name=".Multiplay1NicknameActivity"/>
+        <activity android:name=".TodaysEventActivity"/>
+        <!-- <activity android:name=".Multiplay2NicknameActivity"/>-->
+        <activity android:name=".UsabilityActivity"/>
+        <activity android:name=".MultiPlayResultActivity"/>
+    </application>
+
+</manifest>

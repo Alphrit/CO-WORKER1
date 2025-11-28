@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="500dp"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardMaxElevation="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Booth Image Placeholder -->
+        <FrameLayout
+            android:id="@+id/flBoothImageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="#F5F5F5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBoothImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+
+            <!-- Placeholder text when no image -->
+            <TextView
+                android:id="@+id/tvImagePlaceholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="부스 이미지"
+                android:textColor="#BDBDBD"
+                android:textSize="16sp"
+                android:fontFamily="@font/pretendardregular" />
+        </FrameLayout>
+
+        <!-- Booth Title -->
+        <TextView
+            android:id="@+id/tvBoothTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:text="부스 이름"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendardbold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/flBoothImageContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Booth Description Placeholder -->
+        <TextView
+            android:id="@+id/tvBoothDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:text="단어를 선택하면 생성형 AI가\n나의 이상형을 찾아줘요!"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:fontFamily="@font/pretendardregular"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@id/tvBoothTitle"
+            app:layout_constraintBottom_toTopOf="@id/btnFindBoothLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Find Booth Location Button - Fixed at bottom -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFindBoothLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="부스 위치 찾기 →"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:fontFamily="@font/pretendardbold"
+            android:background="@drawable/btn_booth_location_background"
+            android:backgroundTint="@null"
+            android:paddingVertical="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+

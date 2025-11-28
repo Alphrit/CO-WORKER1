@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    <include-->
+    <!--        android:id="@+id/include_common_button"-->
+    <!--        layout="@layout/common_feature" />-->
+
+
+
+    <LinearLayout
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        >
+        <TextView
+            android:id="@+id/question4c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Q1. 2025 CO-SHOW의 개최도시는 어디일까요?"
+            android:textSize="45sp"
+            android:fontFamily="@font/pretendardbold"
+            android:textAlignment="center"
+            android:maxLines="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="60dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="500dp"
+            android:layout_height="250dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#66007AFF">
+
+            <TextView
+                android:id="@+id/answero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="O"
+                android:textSize="30sp"
+                android:fontFamily="@font/pretendardbold" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="500dp"
+            android:layout_height="250dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#66007AFF">
+
+            <TextView
+                android:id="@+id/answerx"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="X"
+                android:textSize="30sp"
+                android:fontFamily="@font/pretendardbold"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

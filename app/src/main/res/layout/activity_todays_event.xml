@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
+    tools:ignore="RtlSymmetry">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="1000dp" />
+
+    <!-- 메인 왼쪽 영역 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainArea"
+        android:background="#000000"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/g_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#CFE2FF" />
+
+        <!-- 배경 + 헤더(타이틀/홈/헬프)를 모두 담는 영역 -->
+        <FrameLayout
+            android:id="@+id/Gridtheme"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- 배경 이미지 -->
+            <ImageView
+                android:id="@+id/imgEventBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fri_1" />
+
+            <!-- 배경 위에 겹쳐지는 헤더 영역 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/headerOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 상단 공통 탑바 (홈 / HELP) -->
+                <include
+                    android:id="@+id/topBar"
+                    layout="@layout/common_top_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- "Event" 타이틀 -->
+                <TextView
+                    android:id="@+id/titleMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="22dp"
+                    android:text="EVENT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="50sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- "오늘의 행사" 서브 타이틀 -->
+                <TextView
+                    android:id="@+id/titleSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="오늘의 행사"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/titleMap"
+                    app:layout_constraintStart_toEndOf="@id/titleMap" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+        <!-- 하단 바 (버튼 + 페이지 표시) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#CFE2FF"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- 왼쪽 버튼 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDownload"
+                android:layout_width="314dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="40dp"
+                android:text="팜플렛 다운로드"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="@font/pretendardsemibold"
+                app:backgroundTint="#FFDD57"
+                app:cornerRadius="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 가운데 페이지 표시 (1 / 4) -->
+            <TextView
+                android:id="@+id/txtPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 / 4"
+                android:textSize="24sp"
+                android:textColor="#203040"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <!-- 오른쪽 버튼 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewSem"
+                android:layout_width="314dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="40dp"
+                android:text="메인홀로 이동"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="@font/pretendardsemibold"
+                app:backgroundTint="#FBFBFB"
+                app:cornerRadius="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 오른쪽 사이드 바 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rightBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/g_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#0B84FF">
+
+        <LinearLayout
+            android:id="@+id/sideHeader"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:gravity="bottom|center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2025"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CO-SHOW"
+                android:textStyle="bold"
+                android:textColor="#FFEB3B"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/coshowcharacter" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileMap"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="0dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="#0B84FF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/sideHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/map_icon2"
+                android:textColor="#FFFFFF"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileTime"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="0dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="#0B84FF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tileMap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/theme_icon" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileEvent"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="0dp"
+            app:cardBackgroundColor="#0B84FF"
+            app:cardCornerRadius="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tileTime"
+            app:strokeColor="#FFEB3B"
+            app:strokeWidth="1dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/event_icon2" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileClock"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="#0A76E6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/txtClock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="15:00"
+                android:textStyle="bold"
+                android:textSize="36sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/pretendardbold"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

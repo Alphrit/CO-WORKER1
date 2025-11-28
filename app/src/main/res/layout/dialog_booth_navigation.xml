@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:background="@android:color/white"
+    android:gravity="center">
+
+    <!-- Booth Name -->
+    <TextView
+        android:id="@+id/tvBoothNavigationMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[부스 이름]으로 안내합니다"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardbold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Close Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCloseDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:fontFamily="@font/pretendardbold"
+        android:background="@drawable/btn_start_background"
+        android:backgroundTint="@null"
+        android:paddingHorizontal="60dp"
+        android:paddingVertical="12dp" />
+
+</LinearLayout>

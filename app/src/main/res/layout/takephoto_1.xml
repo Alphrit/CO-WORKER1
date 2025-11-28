@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <include-->
+<!--        android:id="@+id/include_common_button"-->
+<!--        layout="@layout/common_feature" />-->
+
+    <TextView
+        android:id="@+id/select1p2p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:text="스티커 사진 촬영 중"
+        android:textColor="#3E3F40"
+        android:textSize="60sp"
+        android:fontFamily="@font/pretendardbold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="65dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/countdowntext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="80dp"
+            android:textColor="#007AFF"
+            android:fontFamily="@font/pretendardbold"
+            android:layout_marginEnd="20dp"/>
+        <ProgressBar
+            android:id="@+id/captureProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="700dp"
+            android:layout_height="20dp"
+            android:max="9000"
+            android:progress="0"
+            android:progressTint="#007AFF"
+            android:backgroundTint="#D3D3D3" />
+
+    </LinearLayout>
+    <!-- 카메라 미리보기 영역 -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="704.7dp"
+        android:layout_height="486dp"
+        android:layout_below="@id/select1p2p"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        app:implementationMode="performance"
+        tools:ignore="MissingClass"/>
+    <TextView
+        android:id="@+id/photoIndexText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/previewView"
+        android:layout_alignEnd="@id/previewView"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="1/4"
+        android:textSize="35sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/pretendardbold"
+        android:background="#66000000"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp" />
+    <!-- 우하단 스티커 -->
+    <ImageView
+        android:id="@+id/stickerOverlayRight1"
+        android:layout_width="486dp"
+        android:layout_height="388.8dp"
+        android:layout_alignEnd="@id/previewView"
+        android:layout_alignBottom="@id/previewView"
+        android:translationX="35.1dp"
+        android:visibility="gone"
+        android:src="@drawable/sticker1_1"
+        />
+    <ImageView
+        android:id="@+id/stickerOverlayRight2"
+        android:layout_width="450.9dp"
+        android:layout_height="351dp"
+        android:layout_alignEnd="@id/previewView"
+        android:layout_alignBottom="@id/previewView"
+        android:translationX="18.9dp"
+        android:translationY="13.5dp"
+        android:visibility="gone"
+        android:src="@drawable/sticker1_3"
+        />
+    <!-- 하단 중앙 스티커 -->
+    <TextView
+        android:id="@+id/stickerOverlayBottom"
+        android:layout_width="558.9dp"
+        android:layout_height="54dp"
+        android:background="#EEEEEE"
+        android:text="사진 중간에 보일 텍스트입니다"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_alignBottom="@id/previewView"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:translationY="-54dp"
+        />
+
+</RelativeLayout>

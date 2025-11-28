@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="800dp"
+        android:layout_height="390dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="55dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="편의시설 찾기"
+                android:textColor="#000000"
+                android:textSize="32sp"
+                android:fontFamily="@font/pretendardextrabold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRestPlace"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="화장실"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMainHall"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="메인 홀"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEntrance"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="입구"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnExit"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="출구"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="280dp"
+                android:layout_height="60dp"
+                android:text="취소"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="@font/pretendardextrabold"
+                android:backgroundTint="#FFFFFF"
+                app:cornerRadius="30dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1px" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

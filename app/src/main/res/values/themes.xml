@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Exam2" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 필요 시 색상 커스텀 -->
+        <!-- <item name="colorPrimary">@color/...</item> -->
+    </style>
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:paddingTop="0dp">
+
+    <!-- Top Bar (Common) -->
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="100dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coshoti_title"
+            android:textColor="#000000"
+            android:textSize="72sp"
+            android:fontFamily="@font/pretendardextrabold" />
+
+        <!-- Subtitle -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coshoti_subtitle"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:fontFamily="@font/pretendardbold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coshoti_description"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendardbold" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <!-- Card with decoration image and start button -->
+        <FrameLayout
+            android:layout_width="1100dp"
+            android:layout_height="wrap_content"
+            >
+
+            <!-- Decoration Image -->
+
+            <!-- Start Button overlaid on image -->
+            <ImageView
+                android:layout_width="1100dp"
+                android:layout_height="480dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/coshowti_start_deco" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStart"
+                android:layout_width="580dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/btn_start_background"
+                android:text="@string/coshoti_start_button"
+                android:textColor="#001F3F"
+                android:textSize="26sp"
+                android:fontFamily="@font/pretendardextrabold" />
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

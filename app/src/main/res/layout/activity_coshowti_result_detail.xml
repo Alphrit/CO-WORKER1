@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:paddingTop="0dp">
+
+    <!-- Top Bar (Common) -->
+    <include
+        android:id="@+id/topBarDetail"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        />
+
+    <!-- TEMI Character Button (Independent Position) -->
+    <ImageButton
+        android:id="@+id/btnTemiCharacter"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/coshowti_charactor_2"
+        android:scaleType="fitCenter"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="설문 시작" />
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="0dp">
+
+        <!-- Result Title -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="당신의 유형은 "
+                android:textColor="#000000"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardextrabold" />
+
+            <TextView
+                android:id="@+id/tvResultCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="디지털지능형"
+                android:textColor="#007AFF"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardextrabold" />
+
+            <TextView
+                android:id="@+id/tvResultCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(DBAS)"
+                android:textColor="#000000"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardextrabold" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Result Name/Subtitle -->
+        <TextView
+            android:id="@+id/tvResultName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="데이터를 기반으로 구조를 설계하는 전략가"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:fontFamily="@font/pretendardextrabold"
+            android:gravity="center" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="63dp" />
+
+        <!-- Booth Cards Container -->
+        <LinearLayout
+            android:id="@+id/llBoothCardsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <!-- Booth Card 1 -->
+            <include
+                android:id="@+id/boothCard1"
+                layout="@layout/item_booth_card" />
+
+            <!-- Booth Card 2 -->
+            <include
+                android:id="@+id/boothCard2"
+                layout="@layout/item_booth_card" />
+
+            <!-- Booth Card 3 -->
+            <include
+                android:id="@+id/boothCard3"
+                layout="@layout/item_booth_card" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- Left Arrow Button -->
+    <ImageButton
+        android:id="@+id/btnBackArrow"
+        android:layout_width="45dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/leftarrow"
+        android:scaleType="fitCenter"
+        android:contentDescription="이전"
+        />
+
+</RelativeLayout>

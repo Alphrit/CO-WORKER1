@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/include_common_button"
+        layout="@layout/survey" />
+
+    <TextView
+        android:id="@+id/frametext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="250dp"
+        android:text="2025\nCO-SHOW"
+        android:textColor="#001849"
+        android:textSize="60sp"
+        android:fontFamily="@font/pretendardbold" />
+
+    <TextView
+        android:id="@+id/frametext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="200dp"
+        android:text="사진이 나왔어요!"
+        android:textColor="#001849"
+        android:textSize="35sp"
+        android:fontFamily="@font/pretendardbold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/navigation_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="110dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#007AFF"
+        >
+
+        <TextView
+            android:id="@+id/retry_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:gravity="center"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="다시 찍기"
+            android:textColor="#FFFFFF"
+            android:textSize="23sp"
+            android:fontFamily="@font/pretendardbold"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="450dp"
+        >
+
+        <ImageView
+            android:id="@+id/frame1final"
+            android:layout_width="206.5dp"
+            android:layout_height="627.9dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/sticker1"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="180dp"
+        android:layout_height="210dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="100dp"
+        app:cardCornerRadius="0dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="#5A5A5A"
+        >
+        <TextView
+            android:id="@+id/qr_info"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="QR 다운로드"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendardbold"
+            />
+        <TextView
+            android:id="@+id/loadingtext"
+            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="로딩 중..."
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendardregular"
+            />
+    <ImageView
+        android:id="@+id/qr"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom|center"
+        />
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

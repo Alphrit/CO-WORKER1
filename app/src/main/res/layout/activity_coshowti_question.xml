@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="0dp">
+
+    <!-- Top Bar (Common) -->
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="120dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="80dp"
+        android:paddingBottom="40dp"
+        android:layout_alignParentTop="true">
+
+        <!-- Progress -->
+
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendardsemibold"
+            android:text="1 / 8"
+            android:textColor="#000000"
+            android:textSize="32sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <!-- Question Text -->
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="1100dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendardsemibold"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="40sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <!-- Answer Buttons Row -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Button 3 (Neutral - Small Gray) - Center anchor -->
+            <FrameLayout
+                android:id="@+id/btnAnswer3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp">
+
+                <View
+                    android:id="@+id/btnAnswer3Circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_circle_gray_border" />
+
+                <ImageView
+                    android:id="@+id/btnAnswer3Check"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Button 2 (Disagree - Medium Yellow) - Left of center -->
+            <FrameLayout
+                android:id="@+id/btnAnswer2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toStartOf="@id/btnAnswer3">
+
+                <View
+                    android:id="@+id/btnAnswer2Circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_circle_yellow_border" />
+
+                <ImageView
+                    android:id="@+id/btnAnswer2Check"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Button 1 (Strong Disagree - Large Yellow) - Leftmost -->
+            <FrameLayout
+                android:id="@+id/btnAnswer1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toStartOf="@id/btnAnswer2">
+
+                <View
+                    android:id="@+id/btnAnswer1Circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_circle_yellow_border" />
+
+                <ImageView
+                    android:id="@+id/btnAnswer1Check"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Left Label: 동의하지 않음 -->
+            <TextView
+                android:id="@+id/tvDisagreeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="50dp"
+                android:layout_toStartOf="@id/btnAnswer1"
+                android:fontFamily="@font/pretendardextrabold"
+                android:text="@string/coshoti_disagree"
+                android:textColor="#FFD54F"
+                android:textSize="20sp" />
+
+            <!-- Button 4 (Agree - Medium Blue) - Right of center -->
+            <FrameLayout
+                android:id="@+id/btnAnswer4"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/btnAnswer3">
+
+                <View
+                    android:id="@+id/btnAnswer4Circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_circle_blue_border" />
+
+                <ImageView
+                    android:id="@+id/btnAnswer4Check"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Button 5 (Strong Agree - Large Blue) - Rightmost -->
+            <FrameLayout
+                android:id="@+id/btnAnswer5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="100dp"
+                android:layout_toEndOf="@id/btnAnswer4">
+
+                <View
+                    android:id="@+id/btnAnswer5Circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_circle_blue_border" />
+
+                <ImageView
+                    android:id="@+id/btnAnswer5Check"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Right Label: 동의함 -->
+            <TextView
+                android:id="@+id/tvAgreeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:layout_toEndOf="@id/btnAnswer5"
+                android:fontFamily="@font/pretendardextrabold"
+                android:text="@string/coshoti_agree"
+                android:textColor="#1E88E5"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Previous Question Button (Higher elevation to appear on top) -->
+    <ImageButton
+        android:id="@+id/btnPrevious"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/previousbutton"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:elevation="10dp"
+        android:visibility="invisible"
+        android:contentDescription="@string/coshoti_prev" />
+
+    <!-- Next Button (Bottom) -->
+    <ImageButton
+        android:id="@+id/btnNext"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:src="@drawable/nextbutton_monochrome"
+        android:enabled="false"
+        android:contentDescription="@string/coshoti_next" />
+
+</RelativeLayout>

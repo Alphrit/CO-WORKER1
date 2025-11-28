@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">exam2</string>
+    <string name="content_desc_home">홈</string>
+    <string name="content_desc_alert">알림</string>
+    <string name="content_desc_map">행사장 지도</string>
+    <string name="content_desc_robot">마스코트</string>
+    <string name="close">닫기</string>
+    <string name="eng">ENG</string>
+    <!--  MainActivity strings  -->
+    <string name="title_coshow">2025\nCO-SHOW</string>
+    <string name="subtitle_immersion">AI를 통해 명화속 몰입을 체험하다</string>
+    <string name="subtitle_booth">명화 속 몰입체험, 전남대학교 부스</string>
+    <!--  Menu cards  -->
+    <string name="menu_place_guide">장소안내</string>
+    <string name="menu_place_subtitle">내비게이션</string>
+    <string name="menu_coshoti">코쇼ti</string>
+    <string name="menu_minigame">미니게임</string>
+    <string name="menu_minigame_subtitle">스티커 사전, 코소 퀴즈</string>
+    <!--  Content descriptions  -->
+    <string name="cd_van_gogh">Van Gogh Foreground</string>
+    <string name="cd_home">Home</string>
+    <string name="cd_alert">Alert</string>
+    <string name="cd_back">Back</string>
+    <string name="return_home_dialog">Return to home dialog</string>
+    <!--  CoshowtiActivity strings  -->
+    <string name="coshoti_title">코쇼TI</string>
+    <string name="coshoti_subtitle">코쇼TI로 <font color="#1E88E5">나의 관심 분야</font> 찾기!</string>
+    <string name="coshoti_description">간단한 질문에 답하고, 관심 분야에 딱 맞는 부스를 추천받아보세요</string>
+    <string name="coshoti_start_button">검사 시작하기 →</string>
+    <string name="coshoti_agree">동의함</string>
+    <string name="coshoti_disagree">동의하지 않음</string>
+    <string name="coshoti_next">다음 문항</string>
+    <string name="coshoti_prev">이전 문항</string>
+    <string name="coshoti_view_result">결과 보러가기 →</string>
+    <string name="coshoti_progress">%1$d / %2$d</string>
+    <!--  Coshoti Stage 1 Questions (5-point Likert scale)  -->
+    <string name="coshoti_stage1_q1">손에 잡히는 기계 장치보다 보이지 않는 소프트웨어가 더 흥미롭다.</string>
+    <string name="coshoti_stage1_q2">있는 그대로의 자연보다 인간이 만든 구조물에서 아름다움을 느낀다.</string>
+    <string name="coshoti_stage1_q3">공감을 통한 위로보다 논리적인 해결책 제시가 더 중요하다고 본다.</string>
+    <string name="coshoti_stage1_q4">정해진 매뉴얼을 따르는 것보다 내 방식대로 시도하는 것이 즐겁다.</string>
+    <!--  Coshoti Stage 2 Questions (2-choice format)  -->
+    <string name="coshoti_stage2_q1">기술 전시회에서 나의 눈길을 더 끄는 것은?</string>
+    <string name="coshoti_stage2_q2">여행지를 고를 때 더 선호하는 풍경은?</string>
+    <string name="coshoti_stage2_q3">무언가를 배울 때 더 이해가 잘 되는 방식은?</string>
+    <string name="coshoti_stage2_q4">번뜩이는 아이디어가 떠올랐을 때 나는?</string>
+    <string name="coshoti_stage2_q1_option1">로봇이나 드론의 정교한 움직임과 기계적 구조</string>
+    <string name="coshoti_stage2_q1_option2">AI가 데이터를 처리하고 결과를 도출하는 알고리즘과 논리</string>
+    <string name="coshoti_stage2_q2_option1">인공적인 손길이 닿지 않은 탁 트인 자연 풍경</string>
+    <string name="coshoti_stage2_q2_option2">인간이 설계한 웅장한 건축물과 잘 정비된 도시</string>
+    <string name="coshoti_stage2_q3_option1">개념과 정의부터 논리적으로 명확히 짚어줄 때</string>
+    <string name="coshoti_stage2_q3_option2">사람들의 실제 경험담이나 구체적인 예시를 들어줄 때</string>
+    <string name="coshoti_stage2_q4_option1">일단 가능한지 바로 테스트해보며 부딪혀 본다.</string>
+    <string name="coshoti_stage2_q4_option2">필요한 준비물과 실행 단계를 정리하는 것부터 시작한다.</string>
+    <!--  Answer options for Stage 1 (5-point Likert)  -->
+    <string name="coshoti_answer_strongly_agree">동의함</string>
+    <string name="coshoti_answer_agree">약간 동의함</string>
+    <string name="coshoti_answer_neutral">잘 모르겠음</string>
+    <string name="coshoti_answer_disagree">약간 동의하지 않음</string>
+    <string name="coshoti_answer_strongly_disagree">동의하지 않음</string>
+</resources>

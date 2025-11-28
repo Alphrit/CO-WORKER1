@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/select1p2p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="160dp"
+        android:text="참여 인원을 선택하세요"
+        android:textColor="#3E3F40"
+        android:textSize="60sp"
+        android:fontFamily="@font/pretendardbold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/p1_button"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:backgroundTint="#007AFF"
+                app:strokeColor="#CFCFCF"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="30dp"/>
+
+            <TextView
+                android:id="@+id/p1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="80dp"
+                android:gravity="center|left"
+                android:paddingHorizontal="26dp"
+                android:text="1인 도전"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardbold" />
+            <TextView
+                android:id="@+id/p1_explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="25dp"
+                android:gravity="center|left"
+                android:paddingHorizontal="26dp"
+                android:text="혼자 도전해 실력을 확인해보세요! \n제한 시간 안에 더 많은 문제를 풀수록 점수가 올라갑니다."
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/p2_button"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:backgroundTint="#FFDD57"
+                app:strokeColor="#CFCFCF"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="30dp"/>
+
+            <TextView
+                android:id="@+id/p2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="80dp"
+                android:gravity="center|left"
+                android:paddingHorizontal="26dp"
+                android:text="2인 대결"
+                android:textColor="#3E3F40"
+                android:textSize="50sp"
+                android:fontFamily="@font/pretendardbold" />
+            <TextView
+                android:id="@+id/p2_explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="25dp"
+                android:gravity="center|left"
+                android:paddingHorizontal="26dp"
+                android:text="친구와 실력을 겨뤄보세요! \n더 빠르게 정답을 맞히는 사람이 승리합니다."
+                android:textColor="#3E3F40"
+                android:textSize="18sp"
+                android:fontFamily="@font/pretendardbold" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+</RelativeLayout>

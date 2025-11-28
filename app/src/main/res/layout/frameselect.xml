@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/frametext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="250dp"
+        android:text="FRAME"
+        android:textColor="#001849"
+        android:textSize="60sp"
+        android:fontFamily="@font/pretendardbold"/>
+
+    <TextView
+        android:id="@+id/frametext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="200dp"
+        android:text="프레임 선택"
+        android:textColor="#001849"
+        android:textSize="35sp"
+        android:fontFamily="@font/pretendardbold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/navigation_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="110dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#007AFF"
+        android:enabled="false"
+        android:clickable="false"
+        android:alpha="0.4"
+        >
+
+        <TextView
+            android:id="@+id/takephoto_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:gravity="center"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="START →"
+            android:textColor="#FFFFFF"
+            android:textSize="23sp"
+            android:fontFamily="@font/pretendardbold"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="250dp"
+        >
+
+        <ImageView
+            android:id="@+id/frame1"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sticker1"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/frame2"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sticker2"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+</RelativeLayout>

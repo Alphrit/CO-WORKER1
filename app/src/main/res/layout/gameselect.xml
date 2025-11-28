@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/pagename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="160dp"
+        android:shadowColor="#80000000"
+        android:text="미니게임"
+        android:textColor="#3E3F40"
+        android:textSize="65sp"
+        android:fontFamily="@font/pretendardbold"/>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="300dp"
+    android:layout_marginLeft="80dp"
+    android:layout_marginRight="80dp"
+    android:orientation="horizontal"
+    android:weightSum="2"
+        >
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingHorizontal="20dp"
+             >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/photo_button"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#007AFF"
+            app:strokeColor="#CFCFCF"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="30dp"/>
+
+        <TextView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="70dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:shadowColor="#80000000"
+            android:text="스티커 사진"
+            android:textColor="#FFFFFF"
+            android:textSize="55sp"
+            android:fontFamily="@font/pretendardbold"/>
+        <TextView
+            android:id="@+id/photo_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:shadowColor="#80000000"
+            android:text="코쇼에서 나만의 추억 남기기"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:fontFamily="@font/pretendardbold"/>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingHorizontal="20dp"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/quiz_button"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#FFDD57"
+            app:strokeColor="#CFCFCF"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="30dp"/>
+
+        <TextView
+            android:id="@+id/quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="70dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:shadowColor="#80000000"
+            android:text="코쇼 퀴즈"
+            android:textColor="#3E3F40"
+            android:textSize="55sp"
+            android:fontFamily="@font/pretendardbold"/>
+        <TextView
+            android:id="@+id/quiz_explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:gravity="center|left"
+            android:paddingHorizontal="26dp"
+            android:shadowColor="#80000000"
+            android:text="행사 관련 퀴즈 맞히고 인증서 받기"
+            android:textColor="#3E3F40"
+            android:textSize="25sp"
+            android:fontFamily="@font/pretendardbold"/>
+
+    </FrameLayout>
+
+</LinearLayout>
+</RelativeLayout>

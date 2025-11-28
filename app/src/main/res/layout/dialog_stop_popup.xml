@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="650dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="#FFFFFF"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="40dp"
+        >
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="코쇼TI 검사를 중단하시겠습니까?"
+            android:textColor="#001F3F"
+            android:textSize="28sp"
+            android:fontFamily="@font/pretendardextrabold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="모든 검사 내역이 사라집니다."
+            android:textColor="#666666"
+            android:textSize="18sp"
+            android:fontFamily="@font/pretendardsemibold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <!-- Go Back Button (Yellow) -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGoBack"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_yellow_rounded"
+            android:backgroundTint="@null"
+            android:text="이전으로 돌아가기"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendardextrabold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <!-- Cancel Button (White with border) -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_white_rounded_border"
+            android:backgroundTint="@null"
+            android:text="취소"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendardextrabold" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

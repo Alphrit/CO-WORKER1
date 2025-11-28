@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="800dp"
+        android:layout_height="390dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="55dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="어떤 도움이 필요하신가요?"
+                android:textColor="#000000"
+                android:textSize="32sp"
+                android:fontFamily="@font/pretendardextrabold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdminHelp"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="관리자 도움이 필요해요"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNoSound"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="소리가 나지 않아요"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTemiStopped"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="Temi가 멈췄어요"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnScreenNotWorking"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:text="화면 작동이 안 돼요"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/pretendardextrabold"
+                    android:backgroundTint="#FFDD57"
+                    app:cornerRadius="30dp"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1px" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="280dp"
+                android:layout_height="60dp"
+                android:text="취소"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="@font/pretendardextrabold"
+                android:backgroundTint="#FFFFFF"
+                app:cornerRadius="30dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1px" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

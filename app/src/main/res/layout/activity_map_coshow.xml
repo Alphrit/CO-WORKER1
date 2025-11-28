@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
+    tools:ignore="RtlSymmetry">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="1000dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/g_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <include
+            android:id="@+id/topBar"
+            layout="@layout/common_top_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/titleMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="22dp"
+            android:text="MAP"
+            android:textColor="#0B84FF"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="행사장 지도"
+            android:textColor="#0B84FF"
+            android:textSize="30sp"
+            android:fontFamily="@font/pretendardbold"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/titleMap"
+            app:layout_constraintStart_toEndOf="@id/titleMap" />
+
+        <TextView
+            android:id="@+id/sector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="130dp"
+            android:text="HALL 2 - 3A"
+            android:textColor="#000000"
+            android:textSize="64sp"
+            android:fontFamily="@font/pretendardbold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardMap"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintEnd_toStartOf="@id/poiColumn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/imgMap"
+                android:layout_width="750dp"
+                android:layout_height="match_parent"
+                android:background="#F1F3F6"
+                android:contentDescription="@string/content_desc_map"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_map" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/poiColumn"
+            android:layout_width="700dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingStart="180dp"
+            app:layout_constraintBottom_toBottomOf="@id/cardMap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cardMap"
+            app:layout_constraintVertical_bias="1.0">
+
+            <LinearLayout
+                android:id="@+id/restroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_poi_row"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/restplace_icon" />
+
+                <TextView
+                    android:layout_width="500dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="화장실"
+                    android:textColor="#666"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/pretendardregular"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/entrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_poi_row"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/entrance_icon" />
+
+                <TextView
+                    android:layout_width="500dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="입구"
+                    android:textColor="#666"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/pretendardregular"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/exit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_poi_row"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/exit_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="출구"
+                    android:textColor="#666"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/pretendardregular"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#CFE2FF"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- 왼쪽 버튼 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDownload"
+                android:layout_width="314dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="40dp"
+                android:text="팜플렛 다운로드"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="@font/pretendardsemibold"
+                app:backgroundTint="#FFDD57"
+                app:cornerRadius="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 오른쪽 버튼 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewSem"
+                android:layout_width="314dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="40dp"
+                android:text="편의시설 찾기"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="@font/pretendardsemibold"
+                app:backgroundTint="#FBFBFB"
+                app:cornerRadius="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rightBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/g_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#0B84FF">
+
+        <LinearLayout
+            android:id="@+id/sideHeader"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:gravity="bottom |center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2025"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CO-SHOW"
+                android:textStyle="bold"
+                android:textColor="#FFEB3B"
+                android:textSize="40sp"
+                android:fontFamily="@font/pretendardbold"/>
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/coshowcharacter"
+                />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileMap"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="0dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="#0B84FF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/sideHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/map_icon"
+                android:textColor="#FFEB3B"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileTime"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="0dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="#0B84FF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tileMap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/theme_icon"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileEvent"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginHorizontal="0dp"
+            app:cardBackgroundColor="#0B84FF"
+            app:cardCornerRadius="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tileTime"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:layout_marginVertical="25dp"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/event_icon"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tileClock"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="#0A76E6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/txtClock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="15:00"
+                android:textStyle="bold"
+                android:textSize="36sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/pretendardbold"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

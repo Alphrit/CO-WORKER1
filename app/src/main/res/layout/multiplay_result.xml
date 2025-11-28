@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        layout="@layout/survey"/>
+
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="230dp"
+        android:text="플레이어1님이 승리하셨습니다"
+        android:textColor="#3E3F40"
+        android:textSize="65sp"
+        android:fontFamily="@font/pretendardbold"/>
+
+    <TextView
+        android:id="@+id/player1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="375dp"
+        android:layout_marginStart="420dp"
+        android:text="플레이어1"
+        android:fontFamily="@font/pretendardbold"
+        android:textColor="#007AFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_centerHorizontal="true"
+        android:translationX="40dp"
+        app:strokeColor="#007AFF"
+        app:strokeWidth="2dp">
+
+        <TextView
+            android:id="@+id/player1score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:text="점"
+            android:gravity="end"
+            android:fontFamily="@font/pretendardbold"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:textSize="25sp"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/player2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="450dp"
+        android:layout_marginStart="420dp"
+        android:text="플레이어2"
+        android:fontFamily="@font/pretendardbold"
+        android:textColor="#007AFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_centerHorizontal="true"
+        android:translationX="40dp"
+        app:strokeColor="#007AFF"
+        app:strokeWidth="2dp">
+
+        <TextView
+            android:id="@+id/player2score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:text="점"
+            android:gravity="end"
+            android:fontFamily="@font/pretendardbold"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:textSize="25sp"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="250dp"
+        android:layout_below="@id/player2"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/gotocertification"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#FFDD57"
+            app:strokeColor="#3E3F40"
+            app:strokeWidth="2dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="인증서 발급하러 가기"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/retry"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#FFFFFF"
+            app:strokeColor="#3E3F40"
+            app:strokeWidth="2dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="다시 도전하기"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
