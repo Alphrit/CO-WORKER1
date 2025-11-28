@@ -31,7 +31,11 @@ class TemiNavigationHelper(
     private var isNavigating: Boolean = false
     private var currentLocationKey: String? = null        // Firebase 에 기록할 키 (예: "rest")
     private var currentTemiLocationName: String? = null   // Temi 에 저장된 위치 이름 (예: "소화기2")
+    // 🔹 추가: 어떤 부스에서 출발했는지(말할 때 쓸 이름)
+    private var currentBoothTitle: String? = null
 
+    // 🔹 추가: 현재 진행 중인 설명 TTS 요청(필요시 취소용)
+    private var currentGuideTts: TtsRequest? = null
     private val gestureDetector: GestureDetectorCompat =
         GestureDetectorCompat(
             activity,
@@ -88,23 +92,24 @@ class TemiNavigationHelper(
     /**
      * 길찾기 시작
      *
-     * @param locationKey      Firebase Directions 하위 노드 이름 (예: "rest", "boothA" 등)
-     * @param temiLocationName Temi 에 저장된 위치 이름 (robot.goTo() 에 들어가는 값)
-     * @param guideMessage     출발할 때 Temi 가 말할 멘트 (비어 있으면 기본 문구 사용)
+     * @param locationKey        Firebase Directions 하위 노드 이름
+     * @param temiLocationName   Temi 에 저장된 위치 이름
+     * @param boothTitle         Temi 가 말로 소개할 부스 이름 (팝업 제목 등)
+     * @param guideMessage       이동 중에 Temi 가 할 설명 멘트 전체
      */
     fun startNavigation(
         locationKey: String,
         temiLocationName: String,
+        boothTitle: String,
         guideMessage: String
     ) {
-        // 🔹 0. Temi 에 이 위치 이름이 실제로 저장돼 있는지 먼저 검사
+        // 0. Temi 안에 해당 위치가 실제로 있는지 확인
         val savedLocations = robot.locations ?: emptyList()
         val isKnownLocation = savedLocations.any {
             it.equals(temiLocationName, ignoreCase = true)
         }
 
         if (!isKnownLocation) {
-            // 위치가 없으면 Firebase 기록/이동 모두 하지 않고 토스트만 띄우고 종료
             Log.w(
                 TAG,
                 "Unknown Temi location name: $temiLocationName, saved=${savedLocations.joinToString()}"
@@ -113,11 +118,12 @@ class TemiNavigationHelper(
             return
         }
 
-        // 🔹 1. 여기까지 왔으면 Temi 안에 존재하는 위치이므로 정상 진행
+        // 1. 상태 저장
         currentLocationKey = locationKey
         currentTemiLocationName = temiLocationName
+        currentBoothTitle = boothTitle
 
-        // 2) Firebase 에 상태 기록: Directions/locationKey = 1
+        // 2. Firebase 플래그 1로 세팅
         directionsRef.child(locationKey).setValue(1).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d(TAG, "Directions/$locationKey -> 1 저장 완료")
@@ -126,20 +132,25 @@ class TemiNavigationHelper(
             }
         }
 
-        // 3) Temi 이동 명령
+        // 3. Temi 이동 시작
         robot.goTo(temiLocationName)
         isNavigating = true
 
-        // 4) UI: 얼굴 화면으로 전환 + 자동 홈복귀 비활성화
+        // 4. UI: 얼굴 화면으로 전환
         showFaceLayoutInternal()
 
-        // 5) 안내 멘트 TTS
+        // 5. 안내 멘트 TTS (기본 멘트 + 부스별 커스텀)
         val text = if (guideMessage.isBlank()) {
-            "${temiLocationName}로 안내중입니다."
+            "${boothTitle} 부스로 안내 중입니다."
         } else {
             guideMessage
         }
-        robot.speak(TtsRequest.create(text, false))
+
+        // 혹시 이전에 말하고 있던 TTS 가 있으면 끊기
+        robot.cancelAllTtsRequests()
+        val tts = TtsRequest.create(text, false)
+        currentGuideTts = tts
+        robot.speak(tts)
     }
 
     override fun onGoToLocationStatusChanged(
@@ -176,10 +187,12 @@ class TemiNavigationHelper(
 
     private fun handleComplete() {
         val locationKey = currentLocationKey
+        val boothTitle = currentBoothTitle
         val temiName = currentTemiLocationName
 
         isNavigating = false
 
+        // Firebase 플래그 0으로
         if (locationKey != null) {
             directionsRef.child(locationKey).setValue(0).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -190,22 +203,32 @@ class TemiNavigationHelper(
             }
         }
 
-        val finText = if (!temiName.isNullOrBlank()) {
-            "${temiName}에 도착했습니다."
-        } else {
-            "목적지에 도착했습니다."
+        // 🔹 현재 말하고 있던 안내 멘트는 즉시 끊기
+        robot.cancelAllTtsRequests()
+
+        // 🔹 부스 제목(없으면 Temi 위치 이름)을 우선으로 사용
+        val arrivalName = when {
+            !boothTitle.isNullOrBlank() -> boothTitle
+            !temiName.isNullOrBlank() -> temiName
+            else -> null
         }
+
+        val finText = arrivalName?.let { "$it 에 도착했습니다." }
+            ?: "목적지에 도착했습니다."
+
         robot.speak(TtsRequest.create(finText, false))
 
+        // UI 원래 화면으로
         showMapLayoutInternal()
     }
-
     fun cancelNavigation(message: String? = null) {
         if (!isNavigating) return
 
         isNavigating = false
 
+        // 이동 중단 + 말도 중단
         robot.stopMovement()
+        robot.cancelAllTtsRequests()
 
         currentLocationKey?.let { key ->
             directionsRef.child(key).setValue(0).addOnCompleteListener { task ->
@@ -219,6 +242,8 @@ class TemiNavigationHelper(
 
         if (!message.isNullOrEmpty()) {
             Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+            // 필요하면 Temi도 같이 말하게
+            robot.speak(TtsRequest.create(message, false))
         }
 
         showMapLayoutInternal()
