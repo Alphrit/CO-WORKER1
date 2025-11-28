@@ -151,62 +151,60 @@
         </GridLayout>
 
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="#BAE7FF"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:background="#CFE2FF"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <!-- 왼쪽: 팜플렛 다운로드 버튼 -->
+            <!-- 왼쪽 버튼 -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDownload"
-                android:layout_width="0dp"
+                android:layout_width="314dp"
                 android:layout_height="60dp"
-                android:layout_weight="4"
-                android:layout_marginStart="50dp"
-                android:paddingHorizontal="0dp"
-                android:paddingVertical="0dp"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/pretendardsemibold"
                 android:text="팜플렛 다운로드"
-                android:textColor="#203040"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:backgroundTint="#FFEB3B"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:backgroundTint="#FFDD57"
                 app:cornerRadius="22dp"
-                app:rippleColor="@android:color/transparent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- 가운데: 페이지 표시 -->
+            <!-- 가운데 페이지 표시 (1 / 4) -->
             <TextView
                 android:id="@+id/txtPage"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
                 android:gravity="center"
                 android:text="1 / 4"
                 android:textColor="#203040"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- 오른쪽: 테마 필터 적용하기 버튼 -->
+            <!-- 오른쪽 버튼 -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnViewSem"
-                android:layout_width="0dp"
+                android:layout_width="314dp"
                 android:layout_height="60dp"
-                android:layout_weight="4"
-                android:layout_marginEnd="50dp"
-                android:paddingHorizontal="0dp"
-                android:paddingVertical="0dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/pretendardsemibold"
                 android:text="테마 필터 적용하기"
-                android:textColor="#203040"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:backgroundTint="#f0f0f0"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:backgroundTint="#FBFBFB"
                 app:cornerRadius="22dp"
-                app:rippleColor="@android:color/transparent" />
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
