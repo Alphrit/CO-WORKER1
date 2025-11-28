@@ -127,16 +127,49 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- 가운데 페이지 표시 (1 / 4) -->
+            <!-- 가운데 영역: 왼쪽 화살표 + 페이지 표시 + 오른쪽 화살표 -->
+
+            <!-- 왼쪽 화살표 버튼 -->
+            <ImageButton
+                android:id="@+id/btnPrevEvent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/eventpage_leftbtn"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                android:contentDescription="이전 페이지"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txtPage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed" />
+
+            <!-- 페이지 표시 (1 / 4) -->
             <TextView
                 android:id="@+id/txtPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 / 4"
-                android:textSize="24sp"
+                android:textSize="30dp"
                 android:textColor="#203040"
                 android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
+                android:paddingHorizontal="30dp"
+
+                app:layout_constraintStart_toEndOf="@id/btnPrevEvent"
+                app:layout_constraintEnd_toStartOf="@id/btnNextEvent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <!-- 오른쪽 화살표 버튼 -->
+            <ImageButton
+                android:id="@+id/btnNextEvent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/eventpage_rightbtn"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                android:contentDescription="다음 페이지"
+                app:layout_constraintStart_toEndOf="@id/txtPage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />

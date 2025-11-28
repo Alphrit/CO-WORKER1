@@ -251,26 +251,24 @@ class TodaysEventActivity : BaseActivity() {
             showEvent(currentIndex)
         }
 
-        // txtPage 좌/우 터치로 이전/다음 이벤트 보기
-        txtPage.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP) {
-                val total = eventImages.size
-                if (total <= 1) return@setOnTouchListener true
+        // 이전/다음 버튼으로 이벤트 페이지 전환
+        val btnPrevEvent = findViewById<ImageButton>(R.id.btnPrevEvent)
+        val btnNextEvent = findViewById<ImageButton>(R.id.btnNextEvent)
 
-                val x = event.x
-                val half = v.width / 2f
+        btnPrevEvent.setOnClickListener {
+            val total = eventImages.size
+            if (total <= 1) return@setOnClickListener
 
-                val targetIndex = if (x < half) {
-                    // 👈 왼쪽 → 이전
-                    if (currentIndex - 1 < 0) total - 1 else currentIndex - 1
-                } else {
-                    // 👉 오른쪽 → 다음
-                    (currentIndex + 1) % total
-                }
+            val targetIndex = if (currentIndex - 1 < 0) total - 1 else currentIndex - 1
+            showEvent(targetIndex)
+        }
 
-                showEvent(targetIndex)
-            }
-            true
+        btnNextEvent.setOnClickListener {
+            val total = eventImages.size
+            if (total <= 1) return@setOnClickListener
+
+            val targetIndex = (currentIndex + 1) % total
+            showEvent(targetIndex)
         }
 
         // 시계는 처음 진입할 때만 시작
@@ -338,6 +336,6 @@ class TodaysEventActivity : BaseActivity() {
 
         // 페이지 표시: "< 1 / 3 >" 이런 형식
         val total = eventImages.size
-        txtPage.text = "< ${index + 1} / $total >"
+        txtPage.text = "${index + 1} / $total"
     }
 }
