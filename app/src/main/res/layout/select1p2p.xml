@@ -84,7 +84,7 @@
                 android:id="@+id/p2_button"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:backgroundTint="#FFDD57"
+                android:backgroundTint="#CFE2FF"
                 app:strokeColor="#CFCFCF"
                 app:strokeWidth="1dp"
                 app:cardCornerRadius="30dp"/>
