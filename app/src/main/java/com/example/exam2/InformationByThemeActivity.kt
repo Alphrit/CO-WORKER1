@@ -1384,7 +1384,7 @@ class InformationByThemeActivity : BaseActivity() {
 
         if (totalPages == 0) {
             gridButtons.forEach { it.visibility = View.INVISIBLE }
-            txtPage.text = "< 0 / 0 >"
+            txtPage.text = "<    0 / 0    >"
             return
         }
 

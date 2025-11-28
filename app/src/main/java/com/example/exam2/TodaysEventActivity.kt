@@ -338,6 +338,6 @@ class TodaysEventActivity : BaseActivity() {
 
         // 페이지 표시: "< 1 / 3 >" 이런 형식
         val total = eventImages.size
-        txtPage.text = "< ${index + 1} / $total >"
+        txtPage.text = "<    ${index + 1} / $total    >"
     }
 }
