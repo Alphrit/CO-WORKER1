@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,9 +18,9 @@
     <!-- 메인 왼쪽 영역 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainArea"
-        android:background="#000000"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#000000"
         android:paddingTop="0dp"
         android:paddingEnd="0dp"
         android:paddingBottom="0dp"
@@ -44,10 +43,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- 배경 이미지 -->
             <ImageView
@@ -69,9 +68,9 @@
                     layout="@layout/common_top_bar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- "Event" 타이틀 -->
                 <TextView
@@ -117,14 +116,14 @@
                 android:layout_width="314dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="40dp"
+                android:fontFamily="@font/pretendardsemibold"
                 android:text="팜플렛 다운로드"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:fontFamily="@font/pretendardsemibold"
                 app:backgroundTint="#FFDD57"
                 app:cornerRadius="22dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!-- 가운데 페이지 표시 (1 / 4) -->
@@ -132,14 +131,14 @@
                 android:id="@+id/txtPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1 / 4"
-                android:textSize="24sp"
-                android:textColor="#203040"
                 android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="1 / 4"
+                android:textColor="#203040"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- 오른쪽 버튼 -->
             <com.google.android.material.button.MaterialButton
@@ -147,14 +146,14 @@
                 android:layout_width="314dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="40dp"
+                android:fontFamily="@font/pretendardsemibold"
                 android:text="메인홀로 이동"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:fontFamily="@font/pretendardsemibold"
                 app:backgroundTint="#FBFBFB"
                 app:cornerRadius="22dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -166,11 +165,11 @@
         android:id="@+id/rightBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/g_right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#0B84FF"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="#0B84FF">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/g_right"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/sideHeader"
@@ -178,27 +177,27 @@
             android:layout_height="300dp"
             android:gravity="bottom|center"
             android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendardbold"
                 android:text="2025"
-                android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:textSize="40sp"
-                android:fontFamily="@font/pretendardbold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendardbold"
                 android:text="CO-SHOW"
-                android:textStyle="bold"
                 android:textColor="#FFEB3B"
                 android:textSize="40sp"
-                android:fontFamily="@font/pretendardbold"/>
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="200dp"
@@ -212,22 +211,22 @@
             android:layout_width="match_parent"
             android:layout_height="135dp"
             android:layout_marginHorizontal="0dp"
-            app:cardCornerRadius="0dp"
             app:cardBackgroundColor="#0B84FF"
-            app:strokeColor="#FFFFFF"
-            app:strokeWidth="1dp"
-            app:layout_constraintTop_toBottomOf="@id/sideHeader"
+            app:cardCornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/sideHeader"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginVertical="25dp"
                 android:layout_marginHorizontal="90dp"
+                android:layout_marginVertical="25dp"
                 android:background="@drawable/map_icon2"
-                android:textColor="#FFFFFF"/>
+                android:gravity="center"
+                android:textColor="#FFFFFF" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -236,21 +235,21 @@
             android:layout_height="135dp"
             android:layout_marginHorizontal="0dp"
             android:layout_marginTop="0dp"
-            app:cardCornerRadius="0dp"
             app:cardBackgroundColor="#0B84FF"
-            app:strokeColor="#FFFFFF"
-            app:strokeWidth="1dp"
-            app:layout_constraintTop_toBottomOf="@id/tileMap"
+            app:cardCornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tileMap"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginVertical="25dp"
                 android:layout_marginHorizontal="90dp"
-                android:background="@drawable/theme_icon" />
+                android:layout_marginVertical="25dp"
+                android:background="@drawable/theme_icon"
+                android:gravity="center" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -258,9 +257,9 @@
             android:layout_width="match_parent"
             android:layout_height="135dp"
             android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="0dp"
             app:cardBackgroundColor="#0B84FF"
             app:cardCornerRadius="0dp"
-            android:layout_marginTop="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tileTime"
@@ -270,10 +269,10 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginVertical="25dp"
                 android:layout_marginHorizontal="90dp"
-                android:background="@drawable/event_icon2" />
+                android:layout_marginVertical="25dp"
+                android:background="@drawable/event_icon2"
+                android:gravity="center" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -282,22 +281,22 @@
             android:layout_height="100dp"
             android:layout_marginHorizontal="0dp"
             android:layout_marginTop="10dp"
-            app:cardCornerRadius="0dp"
             app:cardBackgroundColor="#0A76E6"
-            app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/txtClock"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/pretendardbold"
                 android:gravity="center"
                 android:text="15:00"
-                android:textStyle="bold"
-                android:textSize="36sp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="@font/pretendardbold"/>
+                android:textSize="36sp"
+                android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
