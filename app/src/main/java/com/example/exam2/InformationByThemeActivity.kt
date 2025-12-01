@@ -3,7 +3,6 @@ package com.example.exam2
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.android.material.button.MaterialButton
@@ -21,16 +20,10 @@ import android.view.WindowManager
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import android.widget.Button
-import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import java.util.TimeZone
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 
 class InformationByThemeActivity : BaseActivity() {
     companion object {

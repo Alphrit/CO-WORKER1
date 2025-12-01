@@ -46,6 +46,13 @@ abstract class BaseActivity : AppCompatActivity() {
         logRef.push().setValue(data)
     }
 
+    fun setLoggingClickListener(view: View, buttonName: String, action: () -> Unit) {
+        view.setOnClickListener {
+            logButtonAction(buttonName) // 로그 먼저 남기고
+            action() // 원래 하려던 동작 실행
+        }
+    }
+
     // [수정] Firebase 에 도움 요청 기록 (URL 적용)
     private fun logHelpRequest(reasonKey: String) {
         val db = FirebaseDatabase.getInstance(FIREBASE_URL) // URL 적용
@@ -210,23 +217,23 @@ abstract class BaseActivity : AppCompatActivity() {
             val btnScreenNotWorking = findViewById<Button>(R.id.btnScreenNotWorking)
             val btnCancel = findViewById<Button>(R.id.btnCancel)
 
-            btnAdminHelp.setOnClickListener {
+            setLoggingClickListener(btnAdminHelp, "btnAdminHelp") {
                 dismiss()
                 showAdminCallPopup("adminHelp")
             }
-            btnNoSound.setOnClickListener {
+            setLoggingClickListener(btnNoSound, "btnNoSound") {
                 dismiss()
                 showAdminCallPopup("noSound")
             }
-            btnTemiStopped.setOnClickListener {
+            setLoggingClickListener(btnTemiStopped, "btnTemiStopped") {
                 dismiss()
                 showAdminCallPopup("temiStopped")
             }
-            btnScreenNotWorking.setOnClickListener {
+            setLoggingClickListener(btnScreenNotWorking, "btnScreenNotWorking") {
                 dismiss()
                 showAdminCallPopup("screenNotWorking")
             }
-            btnCancel.setOnClickListener { dismiss() }
+            setLoggingClickListener(btnCancel, "btnCancel") { dismiss() }
 
             show()
         }
@@ -240,7 +247,7 @@ abstract class BaseActivity : AppCompatActivity() {
             setCancelable(true)
 
             val btnConfirm = findViewById<Button>(R.id.btnConfirm)
-            btnConfirm.setOnClickListener {
+            setLoggingClickListener(btnConfirm, "btnConfirm") {
                 logHelpRequest(reasonKey)
                 dismiss()
             }
@@ -259,7 +266,7 @@ abstract class BaseActivity : AppCompatActivity() {
             val btnGoBack = findViewById<Button>(R.id.btnGoBack)
             val btnCancel = findViewById<Button>(R.id.btnCancel)
 
-            btnGoBack.setOnClickListener {
+            setLoggingClickListener(btnGoBack, "btnGoBack") {
                 // [선택 사항] 종료 팝업에서 확인 버튼 로그
                 // logButtonAction("btnStopConfirm")
                 dismiss()

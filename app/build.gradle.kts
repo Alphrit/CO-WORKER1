@@ -54,7 +54,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.28")
     implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
-    implementation("com.robotemi:sdk:1.131.4")
+//    implementation("com.robotemi:sdk:1.131.4")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

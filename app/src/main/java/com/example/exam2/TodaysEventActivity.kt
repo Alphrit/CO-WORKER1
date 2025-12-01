@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -321,7 +320,8 @@ class TodaysEventActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = locationKey,
             temiLocationName = temiLocationName,
-            guideMessage = guideMessage
+            guideMessage = guideMessage,
+            boothTitle = temiLocationName
         )
     }
 

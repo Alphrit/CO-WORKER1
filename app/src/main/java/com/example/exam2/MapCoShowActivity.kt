@@ -9,7 +9,6 @@ import android.os.Looper
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -264,7 +263,8 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = RESTROOM_LOCATION_KEY,
             temiLocationName = RESTROOM_LOCATION_NAME,
-            guideMessage = ""
+            guideMessage = "",
+            boothTitle = RESTROOM_LOCATION_NAME
 
         )
     }
@@ -273,7 +273,8 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = ENTRANCE_LOCATION_KEY,
             temiLocationName = ENTRANCE_LOCATION_NAME,
-            guideMessage = ""
+            guideMessage = "",
+            boothTitle = EXIT_LOCATION_NAME
         )
     }
 
@@ -281,7 +282,8 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = EXIT_LOCATION_KEY,
             temiLocationName = EXIT_LOCATION_NAME,
-            guideMessage = ""
+            guideMessage = "",
+            boothTitle = EXIT_LOCATION_NAME
         )
     }
 
@@ -289,7 +291,8 @@ class MapCoShowActivity : BaseActivity() {
         temiNavigator.startNavigation(
             locationKey = MAINHALL_LOCATION_KEY,
             temiLocationName = MAINHALL_LOCATION_NAME,
-            guideMessage = ""
+            guideMessage = "",
+            boothTitle = MAINHALL_LOCATION_NAME
         )
     }
 }
